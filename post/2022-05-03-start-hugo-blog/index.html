@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="티끌모아태산">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://borajin.github.io/img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="https://borajin.github.io/img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="Hugo 로 깃블로그 만들기" />
+    <meta property="og:title" content="Hugo 로 깃블로그 만들기" />
+    <meta property="twitter:title" content="Hugo 로 깃블로그 만들기" />
+    
+
+    
+    <meta name="description" content="Hugo 로 깃 블로그 만들고 Git Pages 로 배포하기.">
+    <meta property="og:description" content="Hugo 로 깃 블로그 만들고 Git Pages 로 배포하기." />
+    <meta property="twitter:description" content="Hugo 로 깃 블로그 만들고 Git Pages 로 배포하기." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Backend, Develop, Coding">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Hugo 로 깃블로그 만들기 | Bora Blog</title>
+
+    <link rel="canonical" href="/post/2022-05-03-start-hugo-blog/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">티끌모아태산</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/archive/">TIL</a></li>
+                    
+                        <li><a href="/top/projects/">PROJECT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-jeep.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/blog" title="Blog">
+                            Blog
+                        </a>
+                        
+                    </div>
+                    <h1>Hugo 로 깃블로그 만들기</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                진보라
+                             
+                            on 
+                            Tuesday, May 3, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>처음에는 광고를 달아보자는 목적으로 블로그를 시작했다. 공개적으로 포스팅하기 위해 정확한 정보를 찾는 과정에서 많은 공부가 되었고 단순히 읽는 것보다 <strong>기록하는 것이 더 뇌리에 남는다</strong>는 것을 몸소 경험해 TIL 을 실천해보려고 한다. <code>TIL(Today I Learn)</code> 이란 오늘 배운 것을 기록하는 것이다.</p>
+<p>혼자 하면 분명 작심삼일이 될게 뻔했으므로 책임감을 지기 위해 2주 전부터 블로그 스터디를 시작했다. 첫 주에는 블로그 플랫폼을 결정하고 첫 포스팅을 했다. 원래 이용하던 티스토리를 이용할까 했는데, 티스토리와 관련된 기능들이 컨텐츠 읽는 것을 방해한다는 느낌이 들었고 무엇보다 &lsquo;나만의 블로그&rsquo; 라는 느낌이 없어 <code>Git blog</code> 로 만들기로 했다.</p>
+<hr>
+<h2 id="hugo-를-선택한-이유">Hugo 를 선택한 이유</h2>
+<p>블로그는 나만 쓰고 다른 사람은 읽는 사이트라 정적 호스팅 만으로도 충분하다. 유명한 정적 호스팅 플랫폼으로는 <code>Jekyll</code>, <code>Hexo</code>, <code>Hugo</code> 가 있다. <code>Jekyll</code>은 레퍼런스가 가장 많지만 컨텐츠가 많아질 수록 속도가 느려진다는 이슈가 있어 남은 둘 중 고민 하다, <code>Hexo</code> 보다 레퍼런스가 적지만 <code>Go</code> 언어를 사용해서 <strong>속도가 가장 빠르다</strong>는 점에서 <code>Hugo</code> 를 선택했다.</p>
+<hr>
+<h2 id="블로그-만들기">블로그 만들기</h2>
+<p>제일 먼저 한 것은 테마 고르기다. 최대한 글을 보기 깔끔한 테마로 골랐다. 내가 고른 테마는 <a href="https://github.com/zhaohuabing/hugo-theme-cleanwhite">hugo-theme-cleanwhite</a> 이다. 이 테마에는 Quick Start 가 제공돼서 그대로 따라하면 된다. 혹은 <a href="https://gohugo.io/getting-started/quick-start/">Hugo Document - Quick Start</a> 를 참고해도 된다. 아래는 내가 블로그를 만들고 배포한 과정을 적었다.</p>
+<h3 id="1-hugo-프로젝트-생성-후-테마-적용하기">1. hugo 프로젝트 생성 후 테마 적용하기</h3>
+<p>위의 Hugo Document 에서 Hugo 설치 후 Hugo Project 를 생성한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hugo new site git-blog
+</span></span></code></pre></div><p>적용할 테마의 깃 주소를 복사해 themes 폴더 아래에 submodule 로 추가한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> git-blog
+</span></span><span style="display:flex;"><span>$ git submodule add https://github.com/zhaohuabing/hugo-theme-cleanwhite.git themes/hugo-theme-cleanwhite
+</span></span></code></pre></div><blockquote>
+<p>서브모듈로 추가하면 관리가 용이해진다는 장점이 있다.</p>
+</blockquote>
+<p>themes/hugo-theme-cleanwhite/exampleSite 디렉토리의 <code>config.toml</code> 내용을 루트 폴더의 <code>config.toml</code> 파일에 덮어쓰고 내 블로그에 맞게 커스텀한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>baseurl = <span style="color:#f1fa8c">&#34;https://borajin.github.io&#34;</span>
+</span></span><span style="display:flex;"><span>title = <span style="color:#f1fa8c">&#34;blog title&#34;</span>
+</span></span><span style="display:flex;"><span>theme = <span style="color:#f1fa8c">&#34;hugo-theme-cleanwhite&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[params.addtional_menus]] <span style="color:#6272a4">#상단 nav 메뉴 추가 파라미터</span>
+</span></span><span style="display:flex;"><span>title =  <span style="color:#f1fa8c">&#34;TIL&#34;</span>
+</span></span><span style="display:flex;"><span>href =  <span style="color:#f1fa8c">&#34;/top/tils/&#34;</span>  <span style="color:#6272a4">#루트 디렉토리의 하위 디렉토리인 top 디렉토리의 tils.md 파일을 가리킴.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[params.social] <span style="color:#6272a4">#우측 프로필란 sns 버튼 추가 파라미터</span>
+</span></span><span style="display:flex;"><span>github = <span style="color:#f1fa8c">&#34;https://github.com/borajin&#34;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h3 id="2-로컬로-실행해보고-글-작성하기">2. 로컬로 실행해보고 글 작성하기</h3>
+<p>아래 명령어를 입력해 hugo project 를 실행한다. 1313번 포트로 접속하면 테마가 적용된 블로그가 뜬다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hugo serve -t  hugo-theme-cleanwhite <span style="color:#6272a4">#테마 포함해 서버 실행</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Web Server is available at http://localhost:1313/ <span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">bind</span> address 127.0.0.1<span style="color:#ff79c6">)</span>
+</span></span></code></pre></div><p>hugo 로 post를 작성하려면 아래 명령어를 입력하면 된다. 테마마다 지정된 기본 템플릿 내용으로 루트 리렉토리 하위의 post 디렉토리가 생셩될 것이다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new post/file-name.md
+</span></span></code></pre></div><p>상단에는 post 의 메타 정보를 입력한다. image 는 첨부할 이미지의 경로를 입력하면 된다. 보통 static 폴더 하위에 imgs 폴더를 생성해 그 경로를 입력한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;Hugo 로 깃블로그 만들기&#34;
+</span></span><span style="display:flex;"><span>subtitle: &#34;&#34;
+</span></span><span style="display:flex;"><span>description: &#34;Hugo 로 깃 블로그 만들고 Git Pages 로 배포하기.&#34;
+</span></span><span style="display:flex;"><span>date: 2022-05-03
+</span></span><span style="display:flex;"><span>author: &#34;진보라&#34;
+</span></span><span style="display:flex;"><span>image: &#34;imgs/post1.png&#34;
+</span></span><span style="display:flex;"><span>tags: [&#34;Blog&#34;]
+</span></span><span style="display:flex;"><span>categories: [&#34;Tech&#34;]
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h3 id="2-git-repository-연결-및-build-하기">2. git repository 연결 및 build 하기</h3>
+<p>hugo 는 repository 를 2개 가진다. 하나는 <strong>hugo 프로젝트 전체를 저장할 용도</strong>이고 다른 하나는 <strong>build 한 파일을 저장할 용도</strong>이다. 두 번째 repository 는 git pages 로 배포해야 하므로 이름을 <code>{username}.github.io</code> 으로 지어야 한다. 나는 이렇게 두 레파지토리를 생성했다.</p>
+<ul>
+<li>borajin-blog-contents</li>
+<li>borajin.github.io</li>
+</ul>
+<blockquote>
+<p>git pages 는 [username].github.io 라는 도메인만 제공한다. 직접 산 도메인을 연결하고 싶다면 github project setting 에서 설정해야 한다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># 프로젝트 파일 레파지토리 remote</span>
+</span></span><span style="display:flex;"><span>$ git remote add origin https://github.com/borajin/borajin-blog-contents.git
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 빌드파일 레파지토리 remote</span>
+</span></span><span style="display:flex;"><span>$ hugo  <span style="color:#6272a4"># build 커맨드. public 디렉토리가 생성되고 그 하위에 빌드 파일이 저장된다.</span>
+</span></span><span style="display:flex;"><span>$ git submodule add -b main https://github.com/borajin/borajin.github.io.git public
+</span></span></code></pre></div><blockquote>
+<p>만약 main branch 를 찾을 수 없다는 에러가 뜨면 <code>git branch -M main</code> 를 실행한다.</p>
+</blockquote>
+<h3 id="3-git-pages-로-배포하고-쉘-스크립트-만들기">3. git pages 로 배포하고 쉘 스크립트 만들기</h3>
+<p>빌드 파일을 push 하면 저절로 git pages 로 배포가 된다. <code>https://{username}.github.io/</code> 주소로 들어가면 확인할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># 빌드 파일 배포</span>
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> public
+</span></span><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#f1fa8c">&#34;첫 배포&#34;</span>
+</span></span><span style="display:flex;"><span>$ git push origin main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 프로젝트 커밋</span>
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> git-blog
+</span></span><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#f1fa8c">&#34;첫 배포&#34;</span>
+</span></span><span style="display:flex;"><span>$ git push origin main
+</span></span></code></pre></div><p>그런데 이 과정이 너무 귀찮아 하나의 명령어로 처리하고 싶다면 쉘 스크립트 파일을 생성하면 된다. <code>deploy.sh</code> 파일을 만들고 아래 내용을 복사한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#ff79c6">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#ff79c6"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">echo</span> -e <span style="color:#f1fa8c">&#34;\033[0;32mDeploying updates to GitHub...\033[0m&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Build the project.</span>
+</span></span><span style="display:flex;"><span>hugo -t hugo-theme-cleanwhite <span style="color:#6272a4"># if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Go To Public folder</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> public
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Add changes to git.</span>
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Commit changes.</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">msg</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;rebuilding site `date`&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[</span> <span style="color:#8be9fd;font-style:italic">$#</span> -eq <span style="color:#bd93f9">1</span> <span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">then</span> <span style="color:#8be9fd;font-style:italic">msg</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$1</span><span style="color:#f1fa8c">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">fi</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$msg</span><span style="color:#f1fa8c">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Push source and build repos.</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Come Back up to the Project Root</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> ..
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Add changes to git.</span>
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Commit changes.</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">msg</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;rebuilding site `date`&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">[</span> <span style="color:#8be9fd;font-style:italic">$#</span> -eq <span style="color:#bd93f9">1</span> <span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">then</span> <span style="color:#8be9fd;font-style:italic">msg</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$1</span><span style="color:#f1fa8c">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">fi</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$msg</span><span style="color:#f1fa8c">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Push source repos.</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><p>작성한 쉘 스크립트를 실행하면 명령어 한 줄로 배포가 된다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ chmod <span style="color:#bd93f9">777</span> deploy.sh <span style="color:#6272a4">#터미널 상에서 실행할 수 있도록 권한을 바꿔준다.</span>
+</span></span><span style="display:flex;"><span>$ ./deploy.sh
+</span></span></code></pre></div><p>만약 블로그 주소로 들어가도 변경사항이 적용 되지 않는다면 <code>깃 레파지토리</code> 에 들어가 우측 Languages 위의 <code>Environments</code> 를 확인해보자. <code>github-pages</code> 를 클릭하면 배포 상태가 어떤지 확인할 수 있다.
+
+  <img src="2022-05-03-start-hugo-blog.png" alt="github-pages">
+
+</p>
+<hr>
+<h2 id="회고">회고</h2>
+<p>이렇게 Hugo 와 Git pages 를 사용한 깃 블로그를 만들었다. 사실 테마만 몇번째 갈아치우고 있다. 그래도, 드디어 가독성 좋고 마음에 드는 테마를 찾아 정착했으니 꾸준히 포스팅하는 것만 실천하면 된다. <em>(제일 어려운 일!)</em></p>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="https://borajin.github.io"><img src="/img/favicon.png" />티끌모아태산</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://zhaozhihan.com">Linda的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    <li>
+                        <a href="mailto:borajin.soft@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/borajin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="티끌모아태산" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; 티끌모아태산 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+</body>
+</html>
