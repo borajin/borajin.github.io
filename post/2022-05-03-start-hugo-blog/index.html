@@ -206,24 +206,28 @@
                 post-container">
 
                 
-                <p>처음에는 광고를 달아보자는 목적으로 블로그를 시작했다. 공개적으로 포스팅하기 위해 정확한 정보를 찾는 과정에서 많은 공부가 되었고 단순히 읽는 것보다 <strong>기록하는 것이 더 뇌리에 남는다</strong>는 것을 몸소 경험해 TIL 을 실천해보려고 한다. <code>TIL(Today I Learn)</code> 이란 오늘 배운 것을 기록하는 것이다.</p>
-<p>혼자 하면 분명 작심삼일이 될게 뻔했으므로 책임감을 지기 위해 2주 전부터 블로그 스터디를 시작했다. 첫 주에는 블로그 플랫폼을 결정하고 첫 포스팅을 했다. 원래 이용하던 티스토리를 이용할까 했는데, 티스토리와 관련된 기능들이 컨텐츠 읽는 것을 방해한다는 느낌이 들었고 무엇보다 &lsquo;나만의 블로그&rsquo; 라는 느낌이 없어 <code>Git blog</code> 로 만들기로 했다.</p>
+                <p>처음에는 광고를 달아보자는 목적으로 블로그를 시작했다. 공개적으로 포스팅하기 위해 정확한 정보를 찾는 과정에서 많은 공부가 되었고 단순히 읽는 것보다 <strong>기록하는 것이 더 뇌리에 남는다</strong>는 것을 깨닫고 TIL 을 실천해보려고 한다.</p>
+<blockquote>
+<p><code>TIL(Today I Learn)</code> 이란 오늘 배운 것을 기록하는 것이다.</p>
+</blockquote>
+<p>여럿이서 하면 더 즐거울 것 같아 2주 전부터 블로그 스터디를 시작했다. 첫 주에는 블로그 플랫폼을 결정하고 첫 포스팅을 했다. 원래 이용하던 티스토리를 이용할까 했는데, 티스토리와 관련된 기능들이 컨텐츠 읽는 것을 방해한다는 느낌이 들었고 무엇보다 &lsquo;나만의 블로그&rsquo; 라는 느낌이 없어 직접 블로그를 만들기로 했다.</p>
+<p>스터디원 중 한 분은 Git Issue 를 CMS로 사용해 블로그를 구축했다. 이후 나도 매번 글을 작성하고 커밋하는 작업을 피하기 위해 Git Issue 를 이용해볼까 한다. 일단은 Hugo 와 Git Pages 를 이용해 블로그를 만들었다.</p>
 <hr>
 <h2 id="hugo-를-선택한-이유">Hugo 를 선택한 이유</h2>
-<p>블로그는 나만 쓰고 다른 사람은 읽는 사이트라 정적 호스팅 만으로도 충분하다. 유명한 정적 호스팅 플랫폼으로는 <code>Jekyll</code>, <code>Hexo</code>, <code>Hugo</code> 가 있다. <code>Jekyll</code>은 레퍼런스가 가장 많지만 컨텐츠가 많아질 수록 속도가 느려진다는 이슈가 있어 남은 둘 중 고민 하다, <code>Hexo</code> 보다 레퍼런스가 적지만 <code>Go</code> 언어를 사용해서 <strong>속도가 가장 빠르다</strong>는 점에서 <code>Hugo</code> 를 선택했다.</p>
+<p>블로그는 정적 웹 사이트다. 유명한 정적 웹 호스팅 플랫폼으로는 <code>Jekyll</code>, <code>Hexo</code>, <code>Hugo</code> 가 있다. <code>Jekyll</code>은 레퍼런스가 가장 많지만 컨텐츠가 많아질 수록 속도가 느려진다는 이슈가 있어 남은 둘 중 고민 하다, <code>Hexo</code> 보다 레퍼런스가 적지만 <code>Go</code> 언어를 사용해서 <strong>속도가 가장 빠르다</strong>는 점에서 <code>Hugo</code> 를 선택했다.</p>
 <hr>
 <h2 id="블로그-만들기">블로그 만들기</h2>
-<p>제일 먼저 한 것은 테마 고르기다. 최대한 글을 보기 깔끔한 테마로 골랐다. 내가 고른 테마는 <a href="https://github.com/zhaohuabing/hugo-theme-cleanwhite">hugo-theme-cleanwhite</a> 이다. 이 테마에는 Quick Start 가 제공돼서 그대로 따라하면 된다. 혹은 <a href="https://gohugo.io/getting-started/quick-start/">Hugo Document - Quick Start</a> 를 참고해도 된다. 아래는 내가 블로그를 만들고 배포한 과정을 적었다.</p>
+<p>제일 먼저 한 것은 테마 고르기다. 테마는 <a href="https://themes.gohugo.io/">Hugo 공식 페이지의 Themes 탭</a>에서 볼 수 있다. 최대한 글을 보기 깔끔한 테마로 골랐다. 내가 고른 테마는 <a href="https://github.com/zhaohuabing/hugo-theme-cleanwhite">hugo-theme-cleanwhite</a> 이다. 이 테마에는 Quick Start 가 제공돼서 그대로 따라하면 된다. 혹은 <a href="https://gohugo.io/getting-started/quick-start/">Hugo Document - Quick Start</a> 를 참고해도 된다. 아래는 내가 블로그를 만들고 배포한 과정을 적었다.</p>
 <h3 id="1-hugo-프로젝트-생성-후-테마-적용하기">1. hugo 프로젝트 생성 후 테마 적용하기</h3>
-<p>위의 Hugo Document 에서 Hugo 설치 후 Hugo Project 를 생성한다.</p>
+<p><a href="https://gohugo.io/getting-started/installing/">Hugo Document - Hugo 설치 방법</a>을 참고하여 설치 후 Hugo Project 를 생성한다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hugo new site git-blog
 </span></span></code></pre></div><p>적용할 테마의 깃 주소를 복사해 themes 폴더 아래에 submodule 로 추가한다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> git-blog
 </span></span><span style="display:flex;"><span>$ git submodule add https://github.com/zhaohuabing/hugo-theme-cleanwhite.git themes/hugo-theme-cleanwhite
 </span></span></code></pre></div><blockquote>
-<p>서브모듈로 추가하면 관리가 용이해진다는 장점이 있다.</p>
+<p>서브모듈로 추가하면 각각 독립적인 깃 저장소로 분리하여 관리할 수 있다는 장점이 있다.</p>
 </blockquote>
-<p>themes/hugo-theme-cleanwhite/exampleSite 디렉토리의 <code>config.toml</code> 내용을 루트 폴더의 <code>config.toml</code> 파일에 덮어쓰고 내 블로그에 맞게 커스텀한다.</p>
+<p><code>themes/hugo-theme-cleanwhite/exampleSite</code> 디렉토리의 <code>config.toml</code> 내용을 루트 폴더의 <code>config.toml</code> 파일에 덮어쓰고 내 블로그에 맞게 커스텀한다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>baseurl = <span style="color:#f1fa8c">&#34;https://borajin.github.io&#34;</span>
 </span></span><span style="display:flex;"><span>title = <span style="color:#f1fa8c">&#34;blog title&#34;</span>
 </span></span><span style="display:flex;"><span>theme = <span style="color:#f1fa8c">&#34;hugo-theme-cleanwhite&#34;</span>
@@ -261,7 +265,7 @@
 </span></span><span style="display:flex;"><span>---
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div><h3 id="2-git-repository-연결-및-build-하기">2. git repository 연결 및 build 하기</h3>
+</span></span></code></pre></div><h3 id="3-git-repository-연결-및-build-하기">3. git repository 연결 및 build 하기</h3>
 <p>hugo 는 repository 를 2개 가진다. 하나는 <strong>hugo 프로젝트 전체를 저장할 용도</strong>이고 다른 하나는 <strong>build 한 파일을 저장할 용도</strong>이다. 두 번째 repository 는 git pages 로 배포해야 하므로 이름을 <code>{username}.github.io</code> 으로 지어야 한다. 나는 이렇게 두 레파지토리를 생성했다.</p>
 <ul>
 <li>borajin-blog-contents</li>
@@ -276,10 +280,12 @@
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># 빌드파일 레파지토리 remote</span>
 </span></span><span style="display:flex;"><span>$ hugo  <span style="color:#6272a4"># build 커맨드. public 디렉토리가 생성되고 그 하위에 빌드 파일이 저장된다.</span>
 </span></span><span style="display:flex;"><span>$ git submodule add -b main https://github.com/borajin/borajin.github.io.git public
+</span></span></code></pre></div><p>이후 hugo 프로젝트를 clone 하면 submodule 로 추가했던 테마나 public 폴더가 텅 비어있을 것이다. 서브모듈도 같이 클론하고 서브모듈의 업데이트 내용을 자동으로 반영하려면 아래 옵션을 덧붙여준다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone --recurse-submodules https://github.com/borajin/borajin-blog-contents.git
 </span></span></code></pre></div><blockquote>
 <p>만약 main branch 를 찾을 수 없다는 에러가 뜨면 <code>git branch -M main</code> 를 실행한다.</p>
 </blockquote>
-<h3 id="3-git-pages-로-배포하고-쉘-스크립트-만들기">3. git pages 로 배포하고 쉘 스크립트 만들기</h3>
+<h3 id="4-git-pages-로-배포하고-쉘-스크립트-만들기">4. git pages 로 배포하고 쉘 스크립트 만들기</h3>
 <p>빌드 파일을 push 하면 저절로 git pages 로 배포가 된다. <code>https://{username}.github.io/</code> 주소로 들어가면 확인할 수 있다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># 빌드 파일 배포</span>
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">cd</span> public
@@ -333,55 +339,11 @@
 </span></span></code></pre></div><p>작성한 쉘 스크립트를 실행하면 명령어 한 줄로 배포가 된다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ chmod <span style="color:#bd93f9">777</span> deploy.sh <span style="color:#6272a4">#터미널 상에서 실행할 수 있도록 권한을 바꿔준다.</span>
 </span></span><span style="display:flex;"><span>$ ./deploy.sh
-</span></span></code></pre></div><p>만약 블로그 주소로 들어가도 변경사항이 적용 되지 않는다면 <code>깃 레파지토리</code> 에 들어가 우측 Languages 위의 <code>Environments</code> 를 확인해보자. <code>github-pages</code> 를 클릭하면 배포 상태가 어떤지 확인할 수 있다.
-
-  <img src="2022-05-03-start-hugo-blog.png" alt="github-pages">
-
-</p>
+</span></span></code></pre></div><p>만약 블로그 주소로 들어가도 변경사항이 적용 되지 않는다면 <code>깃 레파지토리</code> 에 들어가 우측 Languages 위의 <code>Environments</code> 를 확인해보자. <code>github-pages</code> 를 클릭하면 배포 상태가 어떤지 확인할 수 있다.</p>
 <hr>
 <h2 id="회고">회고</h2>
 <p>이렇게 Hugo 와 Git pages 를 사용한 깃 블로그를 만들었다. 사실 테마만 몇번째 갈아치우고 있다. 그래도, 드디어 가독성 좋고 마음에 드는 테마를 찾아 정착했으니 꾸준히 포스팅하는 것만 실천하면 된다. <em>(제일 어려운 일!)</em></p>
 
-
-                
-                
-<div class="entry-shang text-center">
-    
-	    <p>「真诚赞赏，手留余香」</p>
-	
-	<button class="zs show-zs btn btn-bred">赞赏支持</button>
-</div>
-<div class="zs-modal-bg"></div>
-<div class="zs-modal-box">
-	<div class="zs-modal-head">
-		<button type="button" class="close">×</button>
-		<span class="author"><a href="https://borajin.github.io"><img src="/img/favicon.png" />티끌모아태산</a></span>
-        
-	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
-		
- 
-	</div>
-	<div class="zs-modal-body">
-		<div class="zs-modal-btns">
-			<button class="btn btn-blink" data-num="2">2元</button>
-			<button class="btn btn-blink" data-num="5">5元</button>
-			<button class="btn btn-blink" data-num="10">10元</button>
-			<button class="btn btn-blink" data-num="50">50元</button>
-			<button class="btn btn-blink" data-num="100">100元</button>
-			<button class="btn btn-blink" data-num="1">任意金额</button>
-		</div>
-		<div class="zs-modal-pay">
-			<button class="btn btn-bred" id="pay-text">2元</button>
-			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
-			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
-		</div>
-	</div>
-	<div class="zs-modal-footer">
-		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
-		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
-	</div>
-</div>
-<script type="text/javascript" src="/js/reward.js"></script>
 
                 
 
