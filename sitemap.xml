@@ -2,25 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://borajin.github.io/categories/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://borajin.github.io/tags/etc/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://borajin.github.io/post/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://borajin.github.io/tags/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://borajin.github.io/categories/tech/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://borajin.github.io/post/2022-05-09-code-conventions/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://borajin.github.io/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://borajin.github.io/tags/blog/</loc>
     <lastmod>2022-05-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://borajin.github.io/categories/</loc>
-    <lastmod>2022-05-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://borajin.github.io/post/2022-05-03-start-hugo-blog/</loc>
-    <lastmod>2022-05-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://borajin.github.io/post/</loc>
-    <lastmod>2022-05-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://borajin.github.io/tags/</loc>
-    <lastmod>2022-05-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://borajin.github.io/categories/tech/</loc>
-    <lastmod>2022-05-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://borajin.github.io/</loc>
     <lastmod>2022-05-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://borajin.github.io/search/placeholder/</loc>

@@ -6,7 +6,16 @@
     <description>Recent content in Tech on 티끌모아태산</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://borajin.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://borajin.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>코드 컨벤션</title>
+      <link>https://borajin.github.io/post/2022-05-09-code-conventions/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://borajin.github.io/post/2022-05-09-code-conventions/</guid>
+      <description>코드 컨벤션은 읽기 용이하고 관리하기 쉽게 규정한 일관된 코드 스타일이다. 코드 컨벤션이 코드의 성능을 끌어올리지 않고 깐깐한 규칙을 하나하나 따르다보면 오히려 시</description>
+    </item>
+    
     <item>
       <title>Hugo 로 깃블로그 만들기</title>
       <link>https://borajin.github.io/post/2022-05-03-start-hugo-blog/</link>
